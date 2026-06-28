@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper" data-layout="docs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Details — Drochsign</title>
+  <link rel="stylesheet" href="../drochsign.css" />
+  <link rel="stylesheet" href="../docs.css" />
+</head>
+<body>
+  <header>
+    <strong><a href="../index.html">Drochsign</a></strong>
+    <select id="theme-switcher" aria-label="Choose theme">
+      <optgroup label="Neutral">
+        <option value="paper">Paper</option>
+        <option value="ink">Ink</option>
+        <option value="sepia">Sepia</option>
+        <option value="slate">Slate</option>
+      </optgroup>
+      <optgroup label="Colorful">
+        <option value="citrus">Citrus</option>
+        <option value="ocean">Ocean</option>
+        <option value="rose">Rose</option>
+        <option value="forest">Forest</option>
+        <option value="sunset">Sunset</option>
+        <option value="electric">Electric</option>
+        <option value="coral">Coral</option>
+        <option value="lime">Lime</option>
+        <option value="gamegirl">Game Girl</option>
+      </optgroup>
+    </select>
+  </header>
+
+  <nav aria-label="Documentation">
+    <ul>
+      <li><a href="index.html">Getting started</a></li>
+      <li><a href="theme-editor.html">Theme editor</a></li>
+      <li><a href="button.html">Button</a></li>
+      <li><a href="input.html">Text input</a></li>
+      <li><a href="textarea.html">Textarea</a></li>
+      <li><a href="select.html">Select</a></li>
+      <li><a href="card.html">Card</a></li>
+      <li><a href="toast.html">Toast</a></li>
+      <li><a href="nav.html">Nav</a></li>
+      <li><a href="checkbox-radio.html">Checkbox &amp; radio</a></li>
+      <li><a href="table.html">Table</a></li>
+      <li><a href="blockquote.html">Blockquote</a></li>
+      <li><a href="details.html" aria-current="page">Details</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Details</h1>
+    <p>
+      Native <code>&lt;details&gt;</code> accordion. Open state thickens the border;
+      the chevron rotates via transform — no extra colors.
+    </p>
+
+    <h2>Demo</h2>
+    <section class="doc-demo">
+      <details>
+        <summary>What is Drochsign?</summary>
+        <p>A design system with exactly two colors per theme — background and foreground.</p>
+      </details>
+      <details>
+        <summary>How do errors work?</summary>
+        <p>Dashed borders and shake animation — no red required.</p>
+      </details>
+      <details open>
+        <summary>Can I use this in Elm?</summary>
+        <p>Yes. Link the CSS and use semantic HTML elements in your view.</p>
+      </details>
+    </section>
+
+    <h2>Markup</h2>
+    <pre><code>&lt;details&gt;
+  &lt;summary&gt;Question&lt;/summary&gt;
+  &lt;p&gt;Answer.&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+
+    <nav aria-label="Pagination">
+      <a href="blockquote.html">← Blockquote</a>
+      <span></span>
+    </nav>
+  </main>
+
+  <script src="../js/themes.js"></script>
+</body>
+</html>

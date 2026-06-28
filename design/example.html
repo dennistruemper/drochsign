@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drochsign — Playground</title>
+  <link rel="stylesheet" href="drochsign.css" />
+</head>
+<body>
+  <header>
+    <strong><a href="index.html">Drochsign</a></strong>
+    <nav aria-label="Site">
+      <a href="docs/">Docs</a>
+    </nav>
+    <select id="theme-switcher" aria-label="Choose theme">
+      <optgroup label="Neutral">
+        <option value="paper">Paper</option>
+        <option value="ink">Ink</option>
+        <option value="sepia">Sepia</option>
+        <option value="slate">Slate</option>
+      </optgroup>
+      <optgroup label="Colorful">
+        <option value="citrus">Citrus</option>
+        <option value="ocean">Ocean</option>
+        <option value="rose">Rose</option>
+        <option value="forest">Forest</option>
+        <option value="sunset">Sunset</option>
+        <option value="electric">Electric</option>
+        <option value="coral">Coral</option>
+        <option value="lime">Lime</option>
+        <option value="gamegirl">Game Girl</option>
+      </optgroup>
+    </select>
+  </header>
+
+  <main>
+    <section>
+      <h1>Two colors. That's it.</h1>
+      <p>
+        <small>
+          Each theme is a background and a foreground — like paper and print.
+          Hover and focus use movement, not extra colors.
+        </small>
+      </p>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Buttons</h2>
+      <div role="group">
+        <button type="button" id="toast-trigger">Show toast</button>
+        <button type="button" disabled>Disabled</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Text input</h2>
+      <label for="username-input">Username</label>
+      <input
+        type="text"
+        id="username-input"
+        placeholder="Leave empty, or letters only…"
+        autocomplete="off"
+        aria-describedby="username-error"
+        aria-invalid="false"
+      />
+      <small id="username-error" role="alert">
+        Only letters are allowed — no numbers or symbols.
+      </small>
+      <p><small>Type anything with a number or symbol to see the error state.</small></p>
+    </section>
+
+    <section>
+      <h2>Card</h2>
+      <article>
+        <header><h3>A simple card</h3></header>
+        <p>
+          Every <code>&lt;article&gt;</code> is a card. Use
+          <code>&lt;header&gt;</code> and <code>&lt;footer&gt;</code> inside for
+          sectioning — page <code>&lt;header&gt;</code> is styled separately.
+        </p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Dropdown</h2>
+      <p><small>The theme switcher in the page header is a styled <code>&lt;select&gt;</code>.</small></p>
+      <select aria-label="Choose an option">
+        <option>Option one</option>
+        <option>Option two</option>
+        <option>Option three</option>
+      </select>
+    </section>
+
+    <section>
+      <h2>Details</h2>
+      <details>
+        <summary>More components in the docs</summary>
+        <p>Nav, checkbox, radio, table, blockquote, textarea, and more.</p>
+      </details>
+    </section>
+  </main>
+
+  <output id="toast" popover="manual" role="status" aria-live="polite">
+    Button clicked — toast dismissed automatically.
+  </output>
+
+  <script src="js/themes.js"></script>
+  <script>
+    const toast = document.getElementById('toast');
+    const toastTrigger = document.getElementById('toast-trigger');
+    let toastTimer;
+
+    toastTrigger.addEventListener('click', () => {
+      toast.showPopover();
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.hidePopover(), 3000);
+    });
+
+    const usernameInput = document.getElementById('username-input');
+    const USERNAME_PATTERN = /^[a-zA-Z]*$/;
+
+    usernameInput.addEventListener('input', () => {
+      const value = usernameInput.value;
+      const hasError = value.length > 0 && !USERNAME_PATTERN.test(value);
+      const wasInvalid = usernameInput.getAttribute('aria-invalid') === 'true';
+
+      if (hasError && !wasInvalid) {
+        usernameInput.classList.add('shake');
+        usernameInput.addEventListener(
+          'animationend',
+          () => usernameInput.classList.remove('shake'),
+          { once: true }
+        );
+      }
+
+      usernameInput.setAttribute('aria-invalid', String(hasError));
+    });
+  </script>
+</body>
+</html>

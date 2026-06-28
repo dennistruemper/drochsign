@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper" data-layout="docs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting started — Drochsign</title>
+  <link rel="stylesheet" href="../drochsign.css" />
+  <link rel="stylesheet" href="../docs.css" />
+</head>
+<body>
+  <header>
+    <strong><a href="../index.html">Drochsign</a></strong>
+    <select id="theme-switcher" aria-label="Choose theme">
+      <optgroup label="Neutral">
+        <option value="paper">Paper</option>
+        <option value="ink">Ink</option>
+        <option value="sepia">Sepia</option>
+        <option value="slate">Slate</option>
+      </optgroup>
+      <optgroup label="Colorful">
+        <option value="citrus">Citrus</option>
+        <option value="ocean">Ocean</option>
+        <option value="rose">Rose</option>
+        <option value="forest">Forest</option>
+        <option value="sunset">Sunset</option>
+        <option value="electric">Electric</option>
+        <option value="coral">Coral</option>
+        <option value="lime">Lime</option>
+        <option value="gamegirl">Game Girl</option>
+      </optgroup>
+    </select>
+  </header>
+
+  <nav aria-label="Documentation">
+    <ul>
+      <li><a href="index.html" aria-current="page">Getting started</a></li>
+      <li><a href="theme-editor.html">Theme editor</a></li>
+      <li><a href="button.html">Button</a></li>
+      <li><a href="input.html">Text input</a></li>
+      <li><a href="textarea.html">Textarea</a></li>
+      <li><a href="select.html">Select</a></li>
+      <li><a href="card.html">Card</a></li>
+      <li><a href="toast.html">Toast</a></li>
+      <li><a href="nav.html">Nav</a></li>
+      <li><a href="checkbox-radio.html">Checkbox &amp; radio</a></li>
+      <li><a href="table.html">Table</a></li>
+      <li><a href="blockquote.html">Blockquote</a></li>
+      <li><a href="details.html">Details</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Getting started</h1>
+    <p>
+      Drochsign is a semantic CSS design system: each theme is a background and a
+      foreground, like paper and ink. State and hierarchy use size, weight, and motion —
+      not extra colors.
+    </p>
+
+    <h2>Quick start</h2>
+    <p>Link the stylesheet and set a theme on <code>&lt;html&gt;</code>:</p>
+    <pre><code>&lt;link rel="stylesheet" href="drochsign.css" /&gt;
+&lt;html lang="en" data-theme="paper"&gt;</code></pre>
+
+    <p>Switch themes in JavaScript (see <a href="theme-editor.html">Theme editor</a> for custom themes):</p>
+    <pre><code>document.documentElement.dataset.theme = 'ink';</code></pre>
+
+    <h2>Fonts</h2>
+    <p>
+      The default stack is set on <code>:root</code> as <code>--font-body</code> and
+      <code>--font-mono</code>. Built-in themes can override these — try
+      <strong>sepia</strong> (serif) or <strong>gamegirl</strong> (monospace).
+    </p>
+    <p>Custom values — use the <a href="docs/theme-editor.html">Theme editor</a> or set tokens in JS:</p>
+    <pre><code>const root = document.documentElement;
+root.style.setProperty('--color-bg', '#fef08a');
+root.style.setProperty('--color-fg', '#14532d');
+root.style.setProperty('--font-body', 'Georgia, serif');</code></pre>
+
+    <h2>Elm</h2>
+    <p>
+      Add <code>drochsign.css</code> to your <code>index.html</code>. Use native elements
+      in <code>Html</code> — <code>button</code>, <code>article</code>,
+      <code>input</code>, etc. Set the theme on the root:
+    </p>
+    <pre><code>Html.Attributes.attribute "data-theme" "paper"</code></pre>
+
+    <h2>Foldkit</h2>
+    <p>
+      Same approach: one CSS file, semantic markup in templates, and
+      <code>data-theme</code> on <code>&lt;html&gt;</code>. No component classes required.
+    </p>
+
+    <h2>Components</h2>
+    <p>Each element has its own page with a live demo and markup snippet:</p>
+    <ul>
+      <li><a href="theme-editor.html">Theme editor</a></li>
+      <li><a href="button.html">Button</a></li>
+      <li><a href="input.html">Text input</a></li>
+      <li><a href="textarea.html">Textarea</a></li>
+      <li><a href="select.html">Select</a></li>
+      <li><a href="card.html">Card</a></li>
+      <li><a href="toast.html">Toast</a></li>
+      <li><a href="nav.html">Nav</a></li>
+      <li><a href="checkbox-radio.html">Checkbox &amp; radio</a></li>
+      <li><a href="table.html">Table</a></li>
+      <li><a href="blockquote.html">Blockquote</a></li>
+      <li><a href="details.html">Details</a></li>
+    </ul>
+
+    <h2>Themes</h2>
+    <table>
+      <thead>
+        <tr><th>Name</th><th>Background</th><th>Foreground</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>paper</td><td><code>#ffffff</code></td><td><code>#111111</code></td></tr>
+        <tr><td>ink</td><td><code>#111111</code></td><td><code>#f5f5f5</code></td></tr>
+        <tr><td>sepia</td><td><code>#f4ecd8</code></td><td><code>#3d2b1f</code></td></tr>
+        <tr><td>slate</td><td><code>#e8eaed</code></td><td><code>#1a1a2e</code></td></tr>
+        <tr><td>citrus</td><td><code>#fef08a</code></td><td><code>#14532d</code></td></tr>
+        <tr><td>ocean</td><td><code>#a5f3fc</code></td><td><code>#0c4a6e</code></td></tr>
+        <tr><td>rose</td><td><code>#fce7f3</code></td><td><code>#881337</code></td></tr>
+        <tr><td>forest</td><td><code>#064e3b</code></td><td><code>#6ee7b7</code></td></tr>
+        <tr><td>sunset</td><td><code>#ffedd5</code></td><td><code>#7c2d12</code></td></tr>
+        <tr><td>electric</td><td><code>#4c1d95</code></td><td><code>#fde047</code></td></tr>
+        <tr><td>coral</td><td><code>#fda4af</code></td><td><code>#1e1b4b</code></td></tr>
+        <tr><td>lime</td><td><code>#ecfccb</code></td><td><code>#365314</code></td></tr>
+        <tr><td>gamegirl</td><td><code>#9a9e3f</code></td><td><code>#1b2a09</code></td></tr>
+      </tbody>
+    </table>
+
+    <nav aria-label="Pagination">
+      <span></span>
+      <a href="button.html">Button →</a>
+    </nav>
+  </main>
+
+  <script src="../js/themes.js"></script>
+</body>
+</html>

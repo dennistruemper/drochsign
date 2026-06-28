@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper" data-layout="docs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkbox &amp; radio — Drochsign</title>
+  <link rel="stylesheet" href="../drochsign.css" />
+  <link rel="stylesheet" href="../docs.css" />
+</head>
+<body>
+  <header>
+    <strong><a href="../index.html">Drochsign</a></strong>
+    <select id="theme-switcher" aria-label="Choose theme">
+      <optgroup label="Neutral">
+        <option value="paper">Paper</option>
+        <option value="ink">Ink</option>
+        <option value="sepia">Sepia</option>
+        <option value="slate">Slate</option>
+      </optgroup>
+      <optgroup label="Colorful">
+        <option value="citrus">Citrus</option>
+        <option value="ocean">Ocean</option>
+        <option value="rose">Rose</option>
+        <option value="forest">Forest</option>
+        <option value="sunset">Sunset</option>
+        <option value="electric">Electric</option>
+        <option value="coral">Coral</option>
+        <option value="lime">Lime</option>
+        <option value="gamegirl">Game Girl</option>
+      </optgroup>
+    </select>
+  </header>
+
+  <nav aria-label="Documentation">
+    <ul>
+      <li><a href="index.html">Getting started</a></li>
+      <li><a href="theme-editor.html">Theme editor</a></li>
+      <li><a href="button.html">Button</a></li>
+      <li><a href="input.html">Text input</a></li>
+      <li><a href="textarea.html">Textarea</a></li>
+      <li><a href="select.html">Select</a></li>
+      <li><a href="card.html">Card</a></li>
+      <li><a href="toast.html">Toast</a></li>
+      <li><a href="nav.html">Nav</a></li>
+      <li><a href="checkbox-radio.html" aria-current="page">Checkbox &amp; radio</a></li>
+      <li><a href="table.html">Table</a></li>
+      <li><a href="blockquote.html">Blockquote</a></li>
+      <li><a href="details.html">Details</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Checkbox &amp; radio</h1>
+    <p>
+      Custom-styled with <code>appearance: none</code>. Checked states use inset fills
+      from the foreground color — no extra hues.
+    </p>
+
+    <h2>Demo</h2>
+    <section class="doc-demo">
+      <fieldset>
+        <legend>Preferences</legend>
+        <label><input type="checkbox" checked /> Email updates</label>
+        <label><input type="checkbox" /> SMS alerts</label>
+        <label><input type="checkbox" disabled /> Disabled</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Plan</legend>
+        <label><input type="radio" name="plan" value="free" checked /> Free</label>
+        <label><input type="radio" name="plan" value="pro" /> Pro</label>
+        <label><input type="radio" name="plan" value="team" disabled /> Team (disabled)</label>
+      </fieldset>
+    </section>
+
+    <h2>Markup</h2>
+    <pre><code>&lt;fieldset&gt;
+  &lt;legend&gt;Preferences&lt;/legend&gt;
+  &lt;label&gt;&lt;input type="checkbox" checked /&gt; Email updates&lt;/label&gt;
+  &lt;label&gt;&lt;input type="radio" name="plan" value="free" /&gt; Free&lt;/label&gt;
+&lt;/fieldset&gt;</code></pre>
+
+    <nav aria-label="Pagination">
+      <a href="nav.html">← Nav</a>
+      <a href="table.html">Table →</a>
+    </nav>
+  </main>
+
+  <script src="../js/themes.js"></script>
+</body>
+</html>
