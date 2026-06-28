@@ -151,11 +151,18 @@ main > h2 + pre {
 
 /* Doc demo block */
 .doc-demo {
+  width: 100%;
   padding: var(--space-lg);
   min-width: 0;
   max-width: 100%;
+  box-sizing: border-box;
   border: var(--border-width) dashed var(--color-fg);
   border-radius: var(--radius-md);
+}
+
+.doc-demo > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 /* Pagination */

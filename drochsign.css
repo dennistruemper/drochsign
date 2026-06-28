@@ -188,6 +188,8 @@ hr {
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-md);
+  min-width: 0;
+  max-width: 100%;
 }
 
 /* --- Typography --- */
@@ -316,6 +318,8 @@ textarea,
 select {
   display: block;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   padding: calc(var(--space-sm) - 1px) calc(var(--space-md) - 1px);
   font: inherit;
   color: var(--color-fg);
