@@ -113,21 +113,7 @@ root.style.setProperty('--font-body', 'Georgia, serif');</code></pre>
       <thead>
         <tr><th>Name</th><th>Background</th><th>Foreground</th></tr>
       </thead>
-      <tbody>
-        <tr><td>paper</td><td><code>#ffffff</code></td><td><code>#111111</code></td></tr>
-        <tr><td>ink</td><td><code>#111111</code></td><td><code>#f5f5f5</code></td></tr>
-        <tr><td>sepia</td><td><code>#f4ecd8</code></td><td><code>#3d2b1f</code></td></tr>
-        <tr><td>slate</td><td><code>#e8eaed</code></td><td><code>#1a1a2e</code></td></tr>
-        <tr><td>citrus</td><td><code>#fef08a</code></td><td><code>#14532d</code></td></tr>
-        <tr><td>ocean</td><td><code>#a5f3fc</code></td><td><code>#0c4a6e</code></td></tr>
-        <tr><td>rose</td><td><code>#fce7f3</code></td><td><code>#881337</code></td></tr>
-        <tr><td>forest</td><td><code>#064e3b</code></td><td><code>#6ee7b7</code></td></tr>
-        <tr><td>sunset</td><td><code>#ffedd5</code></td><td><code>#7c2d12</code></td></tr>
-        <tr><td>electric</td><td><code>#4c1d95</code></td><td><code>#fde047</code></td></tr>
-        <tr><td>coral</td><td><code>#fda4af</code></td><td><code>#1e1b4b</code></td></tr>
-        <tr><td>lime</td><td><code>#ecfccb</code></td><td><code>#365314</code></td></tr>
-        <tr><td>gamegirl</td><td><code>#9a9e3f</code></td><td><code>#1b2a09</code></td></tr>
-      </tbody>
+      <tbody id="themes-table"></tbody>
     </table>
 
     <nav aria-label="Pagination">
@@ -137,5 +123,24 @@ root.style.setProperty('--font-body', 'Georgia, serif');</code></pre>
   </main>
 
   <script src="../js/themes.js"></script>
+  <script>
+    (function () {
+      const tbody = document.getElementById('themes-table');
+      const { BUILTIN } = window.drochsignThemes || {};
+      if (!tbody || !BUILTIN) return;
+
+      function colorCell(hex) {
+        return (
+          '<td class="color-cell">' +
+          '<span class="color-swatch" style="--swatch: ' + hex + '" aria-hidden="true"></span>' +
+          '<code>' + hex + '</code></td>'
+        );
+      }
+
+      tbody.innerHTML = BUILTIN.map(
+        (t) => '<tr><td>' + t.id + '</td>' + colorCell(t.bg) + colorCell(t.fg) + '</tr>'
+      ).join('');
+    })();
+  </script>
 </body>
 </html>
