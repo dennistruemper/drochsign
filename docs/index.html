@@ -129,10 +129,18 @@ root.style.setProperty('--font-body', 'Georgia, serif');</code></pre>
       const { BUILTIN } = window.drochsignThemes || {};
       if (!tbody || !BUILTIN) return;
 
+      function contrastColor(hex) {
+        const n = parseInt(hex.slice(1), 16);
+        const r = (n >> 16) & 255;
+        const g = (n >> 8) & 255;
+        const b = n & 255;
+        return (0.299 * r + 0.587 * g + 0.114 * b) / 255 > 0.55 ? '#111111' : '#f5f5f5';
+      }
+
       function colorCell(hex) {
+        const fg = contrastColor(hex);
         return (
-          '<td class="color-cell">' +
-          '<span class="color-swatch" style="--swatch: ' + hex + '" aria-hidden="true"></span>' +
+          '<td class="color-cell" style="--swatch:' + hex + ';color:' + fg + '">' +
           '<code>' + hex + '</code></td>'
         );
       }
