@@ -23,5 +23,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4.1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./design
+          publish_dir: .
+          exclude_assets: .github,.gitignore,README.md
           force_orphan: true

@@ -205,20 +205,19 @@ Custom themes are stored in `localStorage` under `drochsign-custom-themes`. Acti
 ## File structure
 
 ```
-design/
-  index.html         ← landing page
-  example.html       ← all-in-one playground
-  drochsign.css      ← tokens, themes, semantic element styles
-  docs.css           ← documentation layout only
-  js/
-    themes.js          ← theme switcher + custom theme storage
-    theme-editor.js    ← editor page logic
-  docs/
-    theme-editor.html
-    button.html
-    input.html
-    …                ← one page per component
-  DESIGN.md          ← this document
+index.html         ← landing page
+example.html       ← all-in-one playground
+drochsign.css      ← tokens, themes, semantic element styles
+docs.css           ← documentation layout only
+js/
+  themes.js          ← theme switcher + custom theme storage
+  theme-editor.js    ← editor page logic
+docs/
+  theme-editor.html
+  button.html
+  input.html
+  …                ← one page per component
+DESIGN.md          ← this document
 ```
 
 ## Usage
