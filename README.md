@@ -21,8 +21,11 @@ This repo deploys the [`design/`](design/) folder via GitHub Actions (see [`.git
 
 1. Push this repo to GitHub (see below if you have not yet).
 2. On GitHub: **Settings → Pages**
-3. Under **Build and deployment → Source**, choose **GitHub Actions** (not “Deploy from a branch”).
-4. Push to `main` — the workflow uploads `design/` as the site root.
+3. Under **Build and deployment → Source**, choose **Deploy from a branch**.
+4. Set **Branch** to `gh-pages`, folder **`/ (root)`**, then **Save**.
+5. Push to `main` — the workflow copies `design/` to the `gh-pages` branch.
+
+If you previously chose **GitHub Actions** as the source and saw a 404 deploy error, switch to **Deploy from a branch → gh-pages** as above.
 
 Your site will be at:
 
