@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper" data-layout="docs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Text input — Drochsign</title>
+  <link rel="stylesheet" href="../drochsign.css" />
+  <link rel="stylesheet" href="../docs.css" />
+</head>
+<body>
+  <header>
+    <strong><a href="../index.html">Drochsign</a></strong>
+    <select id="theme-switcher" aria-label="Choose theme">
+      <optgroup label="Neutral">
+        <option value="paper">Paper</option>
+        <option value="ink">Ink</option>
+        <option value="sepia">Sepia</option>
+        <option value="slate">Slate</option>
+      </optgroup>
+      <optgroup label="Colorful">
+        <option value="citrus">Citrus</option>
+        <option value="ocean">Ocean</option>
+        <option value="rose">Rose</option>
+        <option value="forest">Forest</option>
+        <option value="sunset">Sunset</option>
+        <option value="electric">Electric</option>
+        <option value="coral">Coral</option>
+        <option value="lime">Lime</option>
+        <option value="gamegirl">Game Girl</option>
+      </optgroup>
+    </select>
+  </header>
+
+  <nav aria-label="Documentation">
+    <ul>
+      <li><a href="index.html">Getting started</a></li>
+      <li><a href="theme-editor.html">Theme editor</a></li>
+      <li><a href="button.html">Button</a></li>
+      <li><a href="input.html" aria-current="page">Text input</a></li>
+      <li><a href="textarea.html">Textarea</a></li>
+      <li><a href="select.html">Select</a></li>
+      <li><a href="card.html">Card</a></li>
+      <li><a href="toast.html">Toast</a></li>
+      <li><a href="nav.html">Nav</a></li>
+      <li><a href="checkbox-radio.html">Checkbox &amp; radio</a></li>
+      <li><a href="table.html">Table</a></li>
+      <li><a href="blockquote.html">Blockquote</a></li>
+      <li><a href="details.html">Details</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Text input</h1>
+    <p>
+      Text inputs use an inset border inside a reserved 2px box — focus thickens the
+      border without layout shift. Errors use <code>aria-invalid</code> and a dashed border.
+    </p>
+
+    <h2>Demo</h2>
+    <section class="doc-demo">
+      <label for="username-input">Username</label>
+      <input
+        type="text"
+        id="username-input"
+        placeholder="Letters only…"
+        autocomplete="off"
+        aria-describedby="username-error"
+        aria-invalid="false"
+      />
+      <small id="username-error" role="alert">
+        Only letters are allowed — no numbers or symbols.
+      </small>
+      <p><small>Type a number or symbol to trigger the error state.</small></p>
+    </section>
+
+    <h2>Markup</h2>
+    <pre><code>&lt;label for="name"&gt;Username&lt;/label&gt;
+&lt;input id="name" type="text" aria-describedby="name-error" aria-invalid="true" /&gt;
+&lt;small id="name-error" role="alert"&gt;Only letters allowed.&lt;/small&gt;</code></pre>
+
+    <nav aria-label="Pagination">
+      <a href="button.html">← Button</a>
+      <a href="textarea.html">Textarea →</a>
+    </nav>
+  </main>
+
+  <script src="../js/themes.js"></script>
+  <script>
+    const usernameInput = document.getElementById('username-input');
+    const USERNAME_PATTERN = /^[a-zA-Z]*$/;
+
+    usernameInput.addEventListener('input', () => {
+      const value = usernameInput.value;
+      const hasError = value.length > 0 && !USERNAME_PATTERN.test(value);
+      const wasInvalid = usernameInput.getAttribute('aria-invalid') === 'true';
+
+      if (hasError && !wasInvalid) {
+        usernameInput.classList.add('shake');
+        usernameInput.addEventListener(
+          'animationend',
+          () => usernameInput.classList.remove('shake'),
+          { once: true }
+        );
+      }
+
+      usernameInput.setAttribute('aria-invalid', String(hasError));
+    });
+  </script>
+</body>
+</html>

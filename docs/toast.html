@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper" data-layout="docs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toast — Drochsign</title>
+  <link rel="stylesheet" href="../drochsign.css" />
+  <link rel="stylesheet" href="../docs.css" />
+</head>
+<body>
+  <header>
+    <strong><a href="../index.html">Drochsign</a></strong>
+    <select id="theme-switcher" aria-label="Choose theme">
+      <optgroup label="Neutral">
+        <option value="paper">Paper</option>
+        <option value="ink">Ink</option>
+        <option value="sepia">Sepia</option>
+        <option value="slate">Slate</option>
+      </optgroup>
+      <optgroup label="Colorful">
+        <option value="citrus">Citrus</option>
+        <option value="ocean">Ocean</option>
+        <option value="rose">Rose</option>
+        <option value="forest">Forest</option>
+        <option value="sunset">Sunset</option>
+        <option value="electric">Electric</option>
+        <option value="coral">Coral</option>
+        <option value="lime">Lime</option>
+        <option value="gamegirl">Game Girl</option>
+      </optgroup>
+    </select>
+  </header>
+
+  <nav aria-label="Documentation">
+    <ul>
+      <li><a href="index.html">Getting started</a></li>
+      <li><a href="theme-editor.html">Theme editor</a></li>
+      <li><a href="button.html">Button</a></li>
+      <li><a href="input.html">Text input</a></li>
+      <li><a href="textarea.html">Textarea</a></li>
+      <li><a href="select.html">Select</a></li>
+      <li><a href="card.html">Card</a></li>
+      <li><a href="toast.html" aria-current="page">Toast</a></li>
+      <li><a href="nav.html">Nav</a></li>
+      <li><a href="checkbox-radio.html">Checkbox &amp; radio</a></li>
+      <li><a href="table.html">Table</a></li>
+      <li><a href="blockquote.html">Blockquote</a></li>
+      <li><a href="details.html">Details</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Toast</h1>
+    <p>
+      Use <code>&lt;output popover="manual"&gt;</code> for action feedback. Inverted
+      fg/bg, slides up from the bottom. Requires a small JS helper to show and auto-dismiss.
+    </p>
+
+    <h2>Demo</h2>
+    <section class="doc-demo">
+      <button type="button" id="toast-trigger">Show toast</button>
+    </section>
+
+    <h2>Markup</h2>
+    <pre><code>&lt;button type="button" id="toast-trigger"&gt;Show toast&lt;/button&gt;
+&lt;output id="toast" popover="manual" role="status" aria-live="polite"&gt;
+  Saved.
+&lt;/output&gt;</code></pre>
+
+    <pre><code>toast.showPopover();
+setTimeout(() =&gt; toast.hidePopover(), 3000);</code></pre>
+
+    <nav aria-label="Pagination">
+      <a href="card.html">← Card</a>
+      <a href="nav.html">Nav →</a>
+    </nav>
+  </main>
+
+  <output id="toast" popover="manual" role="status" aria-live="polite">
+    Action completed — toast dismissed automatically.
+  </output>
+
+  <script src="../js/themes.js"></script>
+  <script>
+    const toast = document.getElementById('toast');
+    const toastTrigger = document.getElementById('toast-trigger');
+    let toastTimer;
+
+    toastTrigger.addEventListener('click', () => {
+      toast.showPopover();
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.hidePopover(), 3000);
+    });
+  </script>
+</body>
+</html>

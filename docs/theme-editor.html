@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper" data-layout="docs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theme editor — Drochsign</title>
+  <link rel="stylesheet" href="../drochsign.css" />
+  <link rel="stylesheet" href="../docs.css" />
+</head>
+<body>
+  <header>
+    <strong><a href="../index.html">Drochsign</a></strong>
+    <select id="theme-switcher" aria-label="Choose theme"></select>
+  </header>
+
+  <nav aria-label="Documentation">
+    <ul>
+      <li><a href="index.html">Getting started</a></li>
+      <li><a href="theme-editor.html" aria-current="page">Theme editor</a></li>
+      <li><a href="button.html">Button</a></li>
+      <li><a href="input.html">Text input</a></li>
+      <li><a href="textarea.html">Textarea</a></li>
+      <li><a href="select.html">Select</a></li>
+      <li><a href="card.html">Card</a></li>
+      <li><a href="toast.html">Toast</a></li>
+      <li><a href="nav.html">Nav</a></li>
+      <li><a href="checkbox-radio.html">Checkbox &amp; radio</a></li>
+      <li><a href="table.html">Table</a></li>
+      <li><a href="blockquote.html">Blockquote</a></li>
+      <li><a href="details.html">Details</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Theme editor</h1>
+    <p>
+      Create custom themes, preview live, and export CSS or JSON for your project.
+      Custom themes are stored in this browser; export to share or deploy elsewhere.
+    </p>
+
+    <div class="editor-layout">
+      <section class="editor-panel">
+        <h2>Edit</h2>
+
+        <label for="editor-theme-picker">Load theme</label>
+        <select id="editor-theme-picker"></select>
+
+        <label for="theme-name">Name</label>
+        <input id="theme-name" type="text" placeholder="My brand" />
+
+        <label for="theme-id">Id <small>(used in data-theme and export)</small></label>
+        <input id="theme-id" type="text" placeholder="my-brand" autocomplete="off" />
+
+        <div class="editor-colors">
+          <div>
+            <label for="theme-bg">Background</label>
+            <input id="theme-bg" type="color" value="#ffffff" />
+          </div>
+          <div>
+            <label for="theme-fg">Foreground</label>
+            <input id="theme-fg" type="color" value="#111111" />
+          </div>
+        </div>
+
+        <label for="theme-font-body">Font body <small>(optional)</small></label>
+        <input id="theme-font-body" type="text" placeholder="system-ui, sans-serif" />
+
+        <label for="theme-font-mono">Font mono <small>(optional)</small></label>
+        <input id="theme-font-mono" type="text" placeholder="ui-monospace, monospace" />
+
+        <div role="group" class="editor-actions">
+          <button type="button" id="save-theme">Save custom</button>
+          <button type="button" id="apply-theme">Apply</button>
+          <button type="button" id="delete-theme">Delete</button>
+        </div>
+
+        <label for="import-json">Import JSON</label>
+        <input id="import-json" type="file" accept="application/json,.json" />
+      </section>
+
+      <section class="editor-panel">
+        <h2>Preview</h2>
+        <div class="doc-demo">
+          <button type="button">Button</button>
+          <label for="preview-input">Sample input</label>
+          <input id="preview-input" type="text" placeholder="Type here…" />
+          <article>
+            <header><h3>Card</h3></header>
+            <p>Preview how components look with your theme.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <h2>Export</h2>
+    <p><small>Add exported CSS to your project after <code>drochsign.css</code>, then use <code>data-theme="your-id"</code>.</small></p>
+
+    <h3>CSS</h3>
+    <pre id="export-css"></pre>
+    <div role="group">
+      <button type="button" data-copy="export-css">Copy CSS</button>
+      <button type="button" data-download="css">Download .css</button>
+      <button type="button" data-download="all-css">Download all custom .css</button>
+    </div>
+
+    <h3>JSON</h3>
+    <pre id="export-json"></pre>
+    <div role="group">
+      <button type="button" data-copy="export-json">Copy JSON</button>
+      <button type="button" data-download="json">Download .json</button>
+      <button type="button" data-download="all-json">Download all custom .json</button>
+    </div>
+
+    <nav aria-label="Pagination">
+      <a href="index.html">← Getting started</a>
+      <a href="button.html">Button →</a>
+    </nav>
+  </main>
+
+  <script src="../js/themes.js"></script>
+  <script src="../js/theme-editor.js"></script>
+</body>
+</html>

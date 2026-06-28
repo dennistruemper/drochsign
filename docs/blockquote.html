@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper" data-layout="docs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blockquote — Drochsign</title>
+  <link rel="stylesheet" href="../drochsign.css" />
+  <link rel="stylesheet" href="../docs.css" />
+</head>
+<body>
+  <header>
+    <strong><a href="../index.html">Drochsign</a></strong>
+    <select id="theme-switcher" aria-label="Choose theme">
+      <optgroup label="Neutral">
+        <option value="paper">Paper</option>
+        <option value="ink">Ink</option>
+        <option value="sepia">Sepia</option>
+        <option value="slate">Slate</option>
+      </optgroup>
+      <optgroup label="Colorful">
+        <option value="citrus">Citrus</option>
+        <option value="ocean">Ocean</option>
+        <option value="rose">Rose</option>
+        <option value="forest">Forest</option>
+        <option value="sunset">Sunset</option>
+        <option value="electric">Electric</option>
+        <option value="coral">Coral</option>
+        <option value="lime">Lime</option>
+        <option value="gamegirl">Game Girl</option>
+      </optgroup>
+    </select>
+  </header>
+
+  <nav aria-label="Documentation">
+    <ul>
+      <li><a href="index.html">Getting started</a></li>
+      <li><a href="theme-editor.html">Theme editor</a></li>
+      <li><a href="button.html">Button</a></li>
+      <li><a href="input.html">Text input</a></li>
+      <li><a href="textarea.html">Textarea</a></li>
+      <li><a href="select.html">Select</a></li>
+      <li><a href="card.html">Card</a></li>
+      <li><a href="toast.html">Toast</a></li>
+      <li><a href="nav.html">Nav</a></li>
+      <li><a href="checkbox-radio.html">Checkbox &amp; radio</a></li>
+      <li><a href="table.html">Table</a></li>
+      <li><a href="blockquote.html" aria-current="page">Blockquote</a></li>
+      <li><a href="details.html">Details</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Blockquote</h1>
+    <p>
+      Quoted text with a thick left border. Use <code>&lt;footer&gt;</code> or
+      <code>&lt;cite&gt;</code> for attribution.
+    </p>
+
+    <h2>Demo</h2>
+    <section class="doc-demo">
+      <blockquote>
+        <p>Two colors. That's it. Like paper and print.</p>
+        <footer>— Drochsign design system</footer>
+      </blockquote>
+    </section>
+
+    <h2>Markup</h2>
+    <pre><code>&lt;blockquote&gt;
+  &lt;p&gt;Two colors. That's it.&lt;/p&gt;
+  &lt;footer&gt;— Attribution&lt;/footer&gt;
+&lt;/blockquote&gt;</code></pre>
+
+    <nav aria-label="Pagination">
+      <a href="table.html">← Table</a>
+      <a href="details.html">Details →</a>
+    </nav>
+  </main>
+
+  <script src="../js/themes.js"></script>
+</body>
+</html>
